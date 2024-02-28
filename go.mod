@@ -49,10 +49,11 @@ require (
 )
 
 require (
+	example.com/gojq_extentions v0.0.0-00010101000000-000000000000
 	github.com/itchyny/gojq v0.12.13
 	golang.org/x/sys v0.8.0 // indirect
-	example.com/gojq_extention v0.0.0-00010101000000-000000000000
 )
 
 replace example.com/p2p_parser => ../p2p_parser
-replace example.com/gojq_extention => ../gojq_extention
+
+replace example.com/gojq_extentions => ../gojq_extentions

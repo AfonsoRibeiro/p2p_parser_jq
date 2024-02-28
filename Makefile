@@ -56,7 +56,7 @@ launch_pprof:
 	/home/afonso_sr/go/bin/pprof -http=:8081 myprogram.prof
 
 test_jq:
-	./jq_scripts_dev/testjq.sh
+	./private_filters/jq_scripts_dev/testjq.sh
 
 clean:
 	rm ${container_name}; \

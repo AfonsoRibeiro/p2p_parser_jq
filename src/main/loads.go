@@ -3,14 +3,15 @@ package main
 import (
 	"os"
 
-	gojq_extention "example.com/gojq_extention/src"
+	gojq_extentions "example.com/gojq_extentions/src"
+
 	"github.com/itchyny/gojq"
 	"github.com/sirupsen/logrus"
 )
 
 // Filter Funciton
 func with_function_compile_test() gojq.CompilerOption {
-	return gojq.WithFunction("ctest", 1, 1, gojq_extention.Compiled_test)
+	return gojq.WithFunction("ctest", 1, 1, gojq_extentions.Compiled_test)
 }
 
 func load_jq(program_file string, options ...gojq.CompilerOption) *gojq.Code {

@@ -20,7 +20,7 @@ func from_args() opt {
 
 	var opt opt
 
-	flag.StringVar(&opt.filtersdir, "filters_dir", "./filters/", "Directory of all the jq filters files")
+	flag.StringVar(&opt.filtersdir, "filters_dir", "./private_filters/filters/", "Directory of all the jq filters files")
 
 	flag.UintVar(&opt.prometheusport, "prometheus_port", 7700, "Prometheous port")
 	flag.StringVar(&opt.loglevel, "log_level", "info", "Logging level: panic - fatal - error - warn - info - debug - trace")
