@@ -1,6 +1,6 @@
 container_name="p2p_parser_jq"
 image_name="p2p_parser_jq"
-image_version="0.0.1"
+image_version="0.0.12"
 
 main: build_go
 	./${container_name} --log_level=debug --source_allow_insecure_connection=true --dest_allow_insecure_connection=true
@@ -26,9 +26,9 @@ run_container: build_cache
 
 # workaround for dockerfile context
 begin_build:
-	mkdir -p build/gojq_extention build/p2p_parser
-	cp -r ../p2p_parser/go.* build/gojq_extention/
-	cp -r ../gojq_extention/src build/gojq_extention/src
+	mkdir -p build/gojq_extentions build/p2p_parser
+	cp -r ../gojq_extentions/go.* build/gojq_extentions/
+	cp -r ../gojq_extentions/src build/gojq_extentions/src
 	cp -r ../p2p_parser/go.* build/p2p_parser/
 	cp -r ../p2p_parser/src build/p2p_parser/src
 
@@ -46,8 +46,7 @@ build_cache: begin_build
 	make end_build
 
 docker_hub: build
-	docker tag ${image_name}:${image_version} xcjsbsx/${image_name}:${image_version}
-	docker push xcjsbsx/${image_name}:${image_version}
+	./push_dockerhub.sh ${image_name} ${image_version}
 
 start_pulsar:
 	docker run -d --rm --name pulsar --net elastic -p 6650:6650 -p 8080:8080 apachepulsar/pulsar:latest bin/pulsar standalone

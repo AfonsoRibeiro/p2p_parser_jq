@@ -1,9 +1,6 @@
 package main
 
 import (
-	"fmt"
-	"os"
-	"runtime/pprof"
 	"time"
 
 	"github.com/sirupsen/logrus"
@@ -13,8 +10,8 @@ import (
 )
 
 func logging(level string) {
-	logrus.SetFormatter(&logrus.TextFormatter{
-		FullTimestamp:   true,
+	logrus.SetFormatter(&logrus.JSONFormatter{
+		//FullTimestamp:   true,
 		TimestampFormat: "2006-01-02T15:04:05.000Z07:00",
 	})
 	l, err := logrus.ParseLevel(level)
@@ -40,14 +37,8 @@ func main() {
 		logrus.Panicln("No valid filters.")
 	}
 
-	if opt.pprof_on {
-		f, err := os.Create(fmt.Sprintf("profiles/%s.prof", time.Now().Format("2006-01-02_15:04:05")))
-		if err != nil {
-			logrus.Fatal("Failed to open file for profiling", err)
-		}
-
-		pprof.StartCPUProfile(f)
-		defer pprof.StopCPUProfile()
+	if opt.pprofon {
+		go activate_profiling(opt.pprofdir, time.Duration(opt.pprofduration)*time.Second)
 	}
 
 	p2p_parser.P2P_parser(opt.p2p_parser_opt, parser)

@@ -1,4 +1,4 @@
-FROM golang:1.21-alpine AS BuilStage
+FROM golang:1.22-alpine AS BuilStage
 
 ENV CGO_ENABLED 0
 
@@ -8,7 +8,7 @@ COPY go.mod ./
 COPY go.sum ./
 
 COPY build/p2p_parser/ ./../p2p_parser/
-COPY build/gojq_extention/ ./../gojq_extention/
+COPY build/gojq_extentions/ ./../gojq_extentions/
 
 RUN go mod download
 
