@@ -3,7 +3,9 @@ module example.com/p2p_parser_jq
 go 1.21
 
 require (
+	example.com/gojq_extentions v0.0.0-00010101000000-000000000000
 	example.com/p2p_parser v0.0.0-00010101000000-000000000000
+	github.com/itchyny/gojq v0.12.14
 	github.com/jnovack/flag v1.16.0
 	github.com/prometheus/client_golang v1.19.0
 	github.com/sirupsen/logrus v1.9.3
@@ -36,7 +38,6 @@ require (
 	github.com/json-iterator/go v1.1.12 // indirect
 	github.com/klauspost/compress v1.17.7 // indirect
 	github.com/linkedin/goavro/v2 v2.12.0 // indirect
-	github.com/matttproud/golang_protobuf_extensions v1.0.4 // indirect
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
 	github.com/modern-go/reflect2 v1.0.2 // indirect
 	github.com/mtibben/percent v0.2.1 // indirect
@@ -53,6 +54,7 @@ require (
 	golang.org/x/mod v0.16.0 // indirect
 	golang.org/x/net v0.22.0 // indirect
 	golang.org/x/oauth2 v0.18.0 // indirect
+	golang.org/x/sys v0.18.0 // indirect
 	golang.org/x/term v0.18.0 // indirect
 	golang.org/x/text v0.14.0 // indirect
 	google.golang.org/appengine v1.6.8 // indirect
@@ -67,12 +69,6 @@ require (
 	k8s.io/utils v0.0.0-20240102154912-e7106e64919e // indirect
 	sigs.k8s.io/json v0.0.0-20221116044647-bc3834ca7abd // indirect
 	sigs.k8s.io/structured-merge-diff/v4 v4.4.1 // indirect
-)
-
-require (
-	example.com/gojq_extentions v0.0.0-00010101000000-000000000000
-	github.com/itchyny/gojq v0.12.14
-	golang.org/x/sys v0.18.0 // indirect
 )
 
 replace example.com/p2p_parser => ../p2p_parser
